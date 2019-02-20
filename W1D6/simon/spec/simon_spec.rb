@@ -88,7 +88,7 @@ describe Simon do
     end
   end
 
-  describe '#show_sequence' do
+  describe '#show_sequence' do # there should be a lot more spec testing here sigh
     it 'calls #add_random_color' do
       expect(simon).to receive(:add_random_color)
       simon.show_sequence
