@@ -37,7 +37,7 @@ describe Dessert do
 
   describe "#mix!" do
     it "shuffles the ingredient array" do # amazing you can just put in anything you want to the before code before you write expect awesome great to know man love specs so much so glad that that's actually part of an assignment now so you're justified in spending the time to really learn speccing so great
-      expect(dessert.ingredients).to receive(:shuffle!) # amazing this works this just says expect this thing to receive that call when called so great methods so awesome
+      expect(dessert.ingredients).to receive(:shuffle!) # amazing this works this just says expect this thing to receive that call when called so great methods so awesome --> this is way better than their answer lol theirs can probabilistically statistically fail a non insignificant number of times
       dessert.mix! # to receive evaluates after the whole block is over https://relishapp.com/rspec/rspec-mocks/docs/basics/expecting-messages
     end
   end
