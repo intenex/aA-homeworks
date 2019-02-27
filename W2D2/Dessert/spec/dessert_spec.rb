@@ -23,7 +23,7 @@ describe Dessert do
     end
 
     it "raises an argument error when given a non-integer quantity" do
-      expect { Dessert.new("cake", "10", "Ben") }.to raise_error # must use a block here to pass in this not sure why but when natively passing an object must use a block like this wow you will have to reference all this stuff way more but this is such crazy good practice so glad to get to do it
+      expect { Dessert.new("cake", "10", chef) }.to raise_error # must use a block here to pass in this not sure why but when natively passing an object must use a block like this wow you will have to reference all this stuff way more but this is such crazy good practice so glad to get to do it
     end
     
   end
