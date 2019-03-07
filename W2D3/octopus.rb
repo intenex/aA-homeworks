@@ -52,3 +52,20 @@ def clever_octopus(arr)
     arr.each { |fish| longest_fish = fish if fish.length > longest_fish.length }
     longest_fish
 end
+
+# Dancing Octopus
+
+# tiles_array = ["up", "right-up", "right", "right-down", "down", "left-down", "left",  "left-up" ]
+
+def slow_dance(direction, tiles_array)
+    move_dir = 0
+    tiles_array.each_with_index { |tile, index| move_dir = index if tile == direction }
+    move_dir
+end
+
+# tiles_hash = {:up => 0, :rightup => 1, :right => 2, :rightdown => 3, :down => 4, :leftdown => 5, :left => 6, :leftup => 7 }
+
+# definitely benchmark set
+# definitely test this in a benchmark
+# actually hash works ideally I think since set has no order and indexes and is unordered - look into how it works though, it's just an unordered list of unique elements which allows for hyper fast lookup like hashes and it actually uses Hashes as storage to implement them so it can't fundamentally be faster than a hash in lookup https://ruby-doc.org/stdlib-2.6.1/libdoc/set/rdoc/Set.html I think it could actually since it imposes addtional restrictions that could allow for specialized lookup behavior love this shit so much
+def fast_dance(direction, tiles_set); tiles_set[direction] end
