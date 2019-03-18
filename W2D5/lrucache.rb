@@ -34,9 +34,16 @@ class LRUCache
 
     def add(el) # right fucking love it you add things to the cache at the end and remove things if the cache is full
         # adds element to cache according to LRU principle
-        cache.push(el)
-        cache.shift if cache.length > size
-        true
+        if cache.include?(el) # remove it if it's already included brilliant forgot this for sure
+            cache.delete(el)
+            cache.push(el)
+        elsif cache.length > size
+            cache.shift
+            cache.push(el)
+        else
+            cache.push(el)
+        end
+        true # don't return the thing and expose it
     end
 
     def show
