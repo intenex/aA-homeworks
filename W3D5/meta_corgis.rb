@@ -107,7 +107,7 @@ class MetaCorgiSnacks
   def initialize(snack_box, box_id)
     @snack_box = snack_box
     @box_id = box_id
-    snack_box.methods.grep(/^get_(.*)_info$/) { MetaCorgiSnacks.define_snack $1 }
+    snack_box.methods.grep(/^get_(.*)_info$/) { MetaCorgiSnacks.define_snack $1 } # lmao this works because you passed in the snack_box as an argument so you don't have to reference the @snack_box instance variable you still have access to the original snack_box argument inside this scope dope
   end
 
   # wow this last part of metaprogramming is fucking awesome you totally failed
