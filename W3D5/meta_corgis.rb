@@ -107,14 +107,32 @@ class MetaCorgiSnacks
   def initialize(snack_box, box_id)
     @snack_box = snack_box
     @box_id = box_id
+    snack_box.methods.grep(/^get_(.*)_info$/) { MetaCorgiSnacks.define_snack $1 }
   end
 
-  def method_missing(name, *args)
-    # Your code goes here...
-  end
+  # wow this last part of metaprogramming is fucking awesome you totally failed
+  # at sleep today and it was your fault ah well you're still lucky to have enough
+  # life will be just fine love it
 
+  # def method_missing(name, *args)
+  #   name = name.to_s
+  #   info_string = 'get_' + name + '_info'
+  #   tasty_string = 'get_' + name + '_tastiness'
+  #   info = @snack_box.send(info_string, @box_id)
+  #   tastiness = @snack_box.send(tasty_string, @box_id)
+  #   result = "Bone: #{info}: #{tastiness} "
+  #   tastiness > 30 ? "* #{result}" : result
+  # end
 
   def self.define_snack(name)
-    # Your code goes here...
+    define_method(name) do
+      name = name.to_s
+      info_string = 'get_' + name + '_info'
+      tasty_string = 'get_' + name + '_tastiness'
+      info = @snack_box.send(info_string, @box_id)
+      tastiness = @snack_box.send(tasty_string, @box_id)
+      result = "Bone: #{info}: #{tastiness} "
+      tastiness > 30 ? "* #{result}" : result
+    end
   end
 end
