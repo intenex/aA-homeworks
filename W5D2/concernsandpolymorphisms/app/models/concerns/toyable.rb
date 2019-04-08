@@ -14,6 +14,8 @@ module Toyable
         # https://apidock.com/rails/v4.2.1/ActiveRecord/Relation/find_or_create_by class method fucking love it ahh APIdock is just a wrapper for Ruby and RoR docs lmao
         new_toy = Toy.find_or_create_by(name: name) # don't need to pass a block otherwise you would need to for any other parameters that would need to be specified thankfully nothing else needs to be specified here lucky to learn this if there were any other columns that needed to be specified other than the things in the arguments hash being passed as the find or create by parameters
         self.toys << new_toy unless self.toys.include?(new_toy) # check this out and try it lol amazing as per https://stackoverflow.com/questions/7297338/how-to-add-records-to-has-many-through-association-in-rails/18114492
+        # oh god damn it they're even smarter you can literally just do
+        # self.toys.find_or_create_by(name: name) lmao in one line so great from their solution code nice
     end
 
     module ClassMethods # anything in here becomes...surprise, a class method lol
