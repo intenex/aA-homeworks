@@ -9,5 +9,6 @@
 #
 
 class Cat < ApplicationRecord
-    has_many :toys, as: :toyable # love it amazing so polymorphics end in able
+    include Toyable
+    # has_many :toys, as: :toyable # love it amazing so polymorphics end in able
 end

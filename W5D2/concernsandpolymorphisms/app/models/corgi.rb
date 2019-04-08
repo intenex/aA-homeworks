@@ -9,5 +9,6 @@
 #
 
 class Corgi < ApplicationRecord
-    has_many :toys, as: :toyable
+    include Toyable
+    # has_many :toys, as: :toyable
 end
