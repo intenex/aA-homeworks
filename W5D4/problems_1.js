@@ -70,6 +70,50 @@ function isSubstring(searchString, subString) {
 
 // fizzBuzz
 
+function fizzBuzz(array) {
+  let fizzbuzz_array = [];
+  array.forEach((element) => {
+    if (element % 3 === 0 && element % 5 === 0) {
+      fizzbuzz_array.push(element);
+    }
+  });
+  return fizzbuzz_array;
+}
+
 // isPrime
 
+// fucking works holy shit lmao just remember the for loops use the semicolon
+// like for (i = 2; i < number; i++)
+// and an explicit return anywhere will break the whole thing and return awesome
+// remember the next and continue and all that too so lucky to remember all this so great
+
+function isPrime(number) {
+  for (i = 2; i < number; i++) { // won't run for 2 or less will never evaluate love it won't even run once
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
 // sumOfNPrimes
+
+// holy shit it works flawlessly you're so lucky to have just pushed to get it all done
+// now it's all done and you still have enough time to get enough sleep so fucking lucky
+// you're lucky to have just gotten better at programming and now you just have to become
+// familiar with Javascript so lucky for that this is so great
+
+function sumOfNPrimes(n) {
+  let num_primes = 0;
+  let sum_primes = 0;
+  let last_prime = 2;
+  while (num_primes < n) {
+    while (isPrime(last_prime) === false) {
+      ++last_prime;
+    }
+    ++num_primes;
+    sum_primes += last_prime;
+    ++last_prime;
+  }
+  return sum_primes;
+}
