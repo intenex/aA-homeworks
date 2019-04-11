@@ -96,6 +96,8 @@ function isPrime(number) {
   return true;
 }
 
+// Love it you killed the basic ones let's crush the next set now definitely get the whole syntax down. Super lucky
+
 // sumOfNPrimes
 
 // holy shit it works flawlessly you're so lucky to have just pushed to get it all done
