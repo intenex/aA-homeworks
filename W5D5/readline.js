@@ -15,7 +15,7 @@ function teaAndBiscuits() {
     let biscuits = "don't";
 
     function askForTea(){
-        reader.question("Would you like tea? Y/N\n", parseTeaAndAskForBiscuits)
+        reader.question("Would you like tea? Y/N\n", parseTeaAndAskForBiscuits) // the .question method will automatically pass an argument to the callback function parseTeaAndAskForBiscuits which will be the stdin response from the user in the console love it
     }
 
     function parseTeaAndAskForBiscuits(teaAnswer){
