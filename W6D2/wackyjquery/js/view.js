@@ -62,21 +62,25 @@ View.prototype.exercise5 = function () {
 
   //your code here!
   let $allLis = $('li'); // get all the lis and data-pos to them and then alert it
-  let allLis = Array.from($allLis);
-  allLis.forEach(function(el, idx) { // ah don't think there's a forEach method on allLis rn lol
-    let x = idx;
-    let y = 0;
-    if (idx >= 20) {
-      x = idx % 20;
-      y = Math.floor(idx/20);
-    }
-    let $el = $(el);
-    $el.data('pos', [x, y]); // holy fuck it works lmao
-  });
+  // this code works flawlessly but is TOTALLY unnecessary lmfao ah well it was great so satisfying that it works lol such great homework loved it
+  // let allLis = Array.from($allLis);
+  // allLis.forEach(function(el, idx) { // ah don't think there's a forEach method on allLis rn lol
+  //   let x = idx;
+  //   let y = 0;
+  //   if (idx >= 20) {
+  //     x = idx % 20;
+  //     y = Math.floor(idx/20);
+  //   }
+  //   let $el = $(el);
+  //   $el.data('pos', [x, y]); // holy fuck it works lmao
+  // });
   $allLis.on("mouseover", () => {
     let $currentLi = $(event.currentTarget); // right must wrap it only jQuery objects have the .data and .on and all that fucking love it
     alert($currentLi.data('pos')); // love it 
   });
+
+  // oh god damn it lmao they DID set a .data('pos') attribute lmao oh well you just weren't accessing it correctly lmfao
+  // your solution is so hilariously convoluted lol
 };
 
 View.prototype.exercise6 = function () {
