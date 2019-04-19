@@ -44,14 +44,35 @@ document.addEventListener("DOMContentLoaded", () => { // need an event listener 
 
   // --- your code here!
 
+  // different way to name the function name a variable and set it equal to an anonymous function love it
   const dogButtonCallback = function () { // god damn these linters are amazing. Having this technology is an absolutely utopic thing and unbelievable
-    const dogFormDiv = getElementsByClassName("photo-form-container")[0]; // why the fuck are they using classes and not IDs
-
+    const dogFormDiv = document.getElementsByClassName("photo-form-container")[0]; // why the fuck are they using classes and not IDs
+    const dfClasses = dogFormDiv.classList;
+    dfClasses.contains('hidden') ? dfClasses.remove('hidden') : dfClasses.add('hidden'); // amazing this ternary works
   };
 
-  const dogButton = document.getElementsByClassName('photo-show-button');
-  dogButton.addEventListener("click", dogButtonCallback); // will this add an event listener to every object in the collection? Time will tell
+  const dogButton = document.getElementsByClassName('photo-show-button')[0];
+  dogButton.addEventListener("click", dogButtonCallback); // will this add an event listener to every object in the collection? Time will tell --> update yep nope that doesn't work lol
 
-  
+  const dogFormDiv = document.getElementsByClassName("photo-form-container")[0];
+  const dogForm = dogFormDiv.children[0]; // oh shit text are nodes and so not the first child amazing lol what you want is .children https://www.w3schools.com/jsref/prop_element_children.asp
+
+  dogForm.addEventListener("submit", dogFormCallback); // works flawlessly now love it
+
+  function dogFormCallback(event) {
+    event.preventDefault();
+
+    console.log('hi');
+    const dfInput = dogForm.children[0];
+    const dfInputVal = dfInput.value;
+    dfInput.value = "";
+
+    const dogList = document.getElementsByClassName('dog-photos')[0];
+    const newLi = document.createElement('li');
+    const newDogImg = document.createElement('img');
+    newDogImg.src = dfInputVal; // so lucky to literally just get it all and to know how to understand the stuff sufficiently to do it all
+    newLi.appendChild(newDogImg);
+    dogList.appendChild(newLi);
+  }
 
 });
